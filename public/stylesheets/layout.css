@@ -1,0 +1,71 @@
+* {
+	margin: 0;
+}
+body{
+	text-align:center;
+}
+html, body {
+	height: 100%;
+	background:#fff;
+}
+
+#wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -40px; /* the bottom margin is the negative value of the footer's height */
+	text-align: center;
+	background:url(/images/bg-white-bordered.gif) 50% repeat-y;
+}
+
+#footer, #push {
+	clear:both;
+	height:40px; /* #push must be the same height as #footer */
+}
+/*
+Sticky Footer by Ryan Fait
+http://ryanfait.com/
+*/
+
+#masthead, #content, #search-container{
+	width:900px;
+	margin:auto;
+	text-align:left;
+}
+#content-main{
+	width:600px;
+	margin-top:20px;
+}
+
+#side-bar{
+	width:300px;
+	float:right;
+	text-align:right;
+}
+
+#search-bar{
+	background-color:#ffc701;
+	padding:8px 0;
+}
+
+#search-container{
+	text-align:right;
+}
+
+#masthead{
+	height:80px;
+	position:relative;
+}
+
+#tag-line, #logo{
+	position:absolute;
+	font-size:1.2em;
+	top:50%;
+}
+#tag-line{
+	right:0;
+	margin-top:-0.2em;
+}
+#logo{
+	margin-top:-12px;
+}

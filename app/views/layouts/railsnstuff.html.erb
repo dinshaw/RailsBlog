@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title><%= page_title %></title>
+	<%= stylesheet_link_tag 'layout', 'railsnstuff', 'nav', :cache => 'railsnstuff' %>
+	<%= javascript_include_tag 'jquery', 'application', :cache => true %>
+</head>
+
+<body id="railsnstuff">
+	<div id="wrapper">
+		<div id="masthead">
+			<div id="tag-line"><p>adventures in freelancing</p></div> <!-- tag-line -->
+			
+			<div id="logo"><%= image_tag 'logo.gif' %></div> <!-- logo -->
+			
+		</div> <!-- masthead -->
+			<div id="search-bar">
+				<div id="search-container">
+					<% form_for '' do |f| %>
+						<%= f.text_field :keyword, :class => :text %>
+						<%= f.submit :search, :class => :btn %>
+					<% end %>
+				</div>
+			</div> <!-- nav-main -->
+		
+		<div id="content">
+			<div id="side-bar">
+				<h2>Tags</h2>
+				<ul id="tags">
+					<li><%= link_to "development", "" %></li>
+					<li><%= link_to "planning", "" %></li>
+					<li><%= link_to "discovery", "" %></li>
+					<li><%= link_to "consultation", "" %></li>
+					<li><%= link_to "wireframe", "" %></li>
+					<li><%= link_to "IA", "" %></li>
+					<li><%= link_to "proto-site", "" %></li>
+					<li><%= link_to "useability", "" %></li>
+					<li><%= link_to "development team", "" %></li>
+					<li><%= link_to "design", "" %></li>
+					<li><%= link_to "full lifecycle", "" %></li>
+					<li><%= link_to "small projects", "" %></li>
+					<li><%= link_to "scripting", "" %></li>
+				</ul>
+			</div> <!-- side-bar -->
+	
+			<div id="content-main">
+				<%= yield %>
+			</div> <!-- content-main -->
+		</div> <!-- content -->
+		
+		<div id="push"></div> <!-- push -->
+		
+	</div> <!-- wrapper -->
+	
+	<div id="footer"></div> <!-- footer -->
+
+</body>
+</html>

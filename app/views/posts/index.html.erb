@@ -1,0 +1,40 @@
+	<div class="post">
+		<div class="post-info">
+			<ul>
+				<li class="number">#12</li>
+				<li class="date">4/23/09</li>	
+				<li class="comments"><%= link_to "13 comments" ""%></li>							
+			</ul>						
+		</div> <!-- post-info -->
+		<div class="post-content">
+			<h1>Sesame Vault Video Uploads!</h1>
+			<p>A free, one-hour, initial consultation is given, to all perspective clients. This is best done face-to-face. The goal of the consultation is to document the project objectives and determine an appropriate course of action.</p>
+		</div> <!-- post-content -->
+		<div class="post-resources">
+			<h3>Resources</h3>
+			<ul>
+				<li><%= link_to "Some code" "" %></li>
+			</ul>
+			<h3>Tags</h3>
+			<ul>
+				<li><%= link_to "tag1" "" %>, <%= link_to "tag2" "" %>, and <%= link_to "tag3" "" %></li>
+			</ul>
+		</div> <!-- post-resources -->
+		<div id="post-comments">
+			<h2><%= image_tag "rss.gif" %> <%= link_to "13 Comments" %></h2>
+
+			<div class="comment">
+				<div class="comment-info">
+					<p><%= link_to "3 replys",'', :class => :replys %> 1. <%= link_to "Dinshaw", "", :class => :commentor %> <span class="date">Jan 12, 2009 at 12.34 am</span></p>
+				</div> <!-- comment-info -->
+				<div class="comment-content">
+					<p>How would you go about sequencing a specific number length? For example, if I need a 7 digit number, how could I specify that the number must have leading zeros?</p>
+					<p>I'm currently doing:</p>
+					<p>http://pastie.org/452428</p>
+				</div> <!-- comment-content -->
+				<div class="comment-actions">
+					<p><%= link_to "reply", "" %> | <%= link_to "spam?", "" %></p>
+				</div> <!-- comment-actions -->
+			</div> <!-- comment -->
+		</div> <!-- post-comments -->
+	</div> <!-- posts -->
