@@ -50,6 +50,15 @@ h2{
 	line-height:1.7em;
 }
 
+h3{
+	font-size:1em;
+	line-height:1.7em;
+}
+
+p {
+	margin-bottom:10px;
+}
+
 /* Posts */
 .post-content{
 }
@@ -71,19 +80,12 @@ h2{
 .post-resources{
 	background-color:#ededed;	
 	padding:15px;
+	font-size:0.9em;
 }
 
 /* Tags */
 #tags{
 
-}
-
-/* Forms*/
-input.text{
-	width:180px;
-}
-#search-container .btn{
-	margin-left:10px;
 }
 
 /* Comments */
@@ -110,3 +112,5 @@ input.text{
 	float:right;
 	margin-top:25px;
 }
+
+/* admin */

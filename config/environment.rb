@@ -21,6 +21,8 @@ Rails::Initializer.run do |config|
   config.gem 'chronic', :source => 'http://gems.github.com'
   config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list', :source => 'http://gems.github.com'
   config.gem 'sqlite3-ruby', :lib => 'sqlite3'
+  config.gem 'coderay'
+  config.gem 'friendly_id'  
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
@@ -52,4 +54,6 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
+  require 'redcloth'
+  require 'coderay'
 end

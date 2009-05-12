@@ -1,0 +1,29 @@
+<h1>Listing post_resources</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Url</th>
+    <th>Post</th>
+    <th>Position</th>
+    <th>Description</th>
+  </tr>
+
+<% @post_resources.each do |post_resource| %>
+  <tr>
+    <td><%=h post_resource.title %></td>
+    <td><%=h post_resource.url %></td>
+    <td><%=h post_resource.post_id %></td>
+    <td><%=h post_resource.position %></td>
+    <td><%=h post_resource.description %></td>
+    <td><%= link_to 'Show', admin_post_resource_path(post_resource) %></td>
+    <td><%= link_to 'Edit', edit_admin_post_resource_path(post_resource) %></td>
+    <td><%= link_to 'Destroy', admin_post_resource_path(post_resource), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New post_resource', new_admin_post_resource_path %>
+

@@ -33,12 +33,12 @@ http://ryanfait.com/
 	text-align:left;
 }
 #content-main{
-	width:600px;
+	width:700px;
 	margin-top:20px;
 }
 
 #side-bar{
-	width:300px;
+	width:200px;
 	float:right;
 	text-align:right;
 }
@@ -65,7 +65,8 @@ http://ryanfait.com/
 #tag-line{
 	right:0;
 	margin-top:-0.2em;
+	font-size:0.9em;
 }
 #logo{
-	margin-top:-12px;
+	margin-top:-20px;
 }

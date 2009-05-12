@@ -5,4 +5,17 @@ module ApplicationHelper
     title << "|" << @post.title if @post
     title.join(" ")
   end
+
+  def rnst(text)
+    textilize( parse_coderay(text) )
+  end
+
+  def parse_coderay(text)
+    return false unless text
+    text.scan(/(<code\:([a-z].+?)>(.+?)<\/code>)/m).each do |match|
+      text.gsub!(match[0],CodeRay.scan(match[2].strip, match[1].to_sym).div(:css => :class))
+    end
+    text
+  end
+
 end

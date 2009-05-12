@@ -5,14 +5,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<title><%= page_title %></title>
-	<%= stylesheet_link_tag 'layout', 'railsnstuff', 'nav', :cache => 'railsnstuff' %>
+	<%= stylesheet_link_tag 'layout', 'railsnstuff', 'nav', 'forms', 'coderay2', :cache => 'railsnstuff' %>
 	<%= javascript_include_tag 'jquery', 'application', :cache => true %>
+	
 </head>
 
 <body id="railsnstuff">
 	<div id="wrapper">
 		<div id="masthead">
-			<div id="tag-line"><p>adventures in freelancing</p></div> <!-- tag-line -->
+			<div id="tag-line"><p>... adventures in freelancing</p></div> <!-- tag-line -->
 			
 			<div id="logo"><%= image_tag 'logo.gif' %></div> <!-- logo -->
 			

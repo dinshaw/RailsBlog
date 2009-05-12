@@ -1,0 +1,42 @@
+/* Forms*/
+textarea, input{
+	margin-bottom:15px;
+}
+input, label, textarea{
+	font-size:1em;
+}
+
+input.text{
+	width:300px;
+	padding:3px 5px;
+}
+#search-container .btn{
+	margin-left:10px;
+	line-height:1em;	
+}
+
+label{
+	display:block;
+	font-size:1.2em;
+	margin-bottom:5px;
+}
+textarea{
+	font-family: verdana, sans-serif;
+	width:650px;
+	padding:3px 5px;
+}
+
+textarea.small{
+	width:650px;
+	height:100px;
+}
+
+
+/* search */
+#search-bar input{
+	margin:0;
+}
+#search-bar input.text{
+	width:180px;
+	margin:0;
+}
