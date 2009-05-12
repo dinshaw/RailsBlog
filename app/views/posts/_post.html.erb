@@ -5,22 +5,24 @@
 			<li class="number">#<%= post.id %></li>
 			<li class="date"><%= post.created_at.to_s(:post) %></li>	
 			<%= content_tag(:li, link_to("#{post.comment_count} comments", ""), :class => :comments) if post.comment_count.to_i > 0 %>
-		</ul>						
+		</ul>
 	</div> <!-- post-info -->
 	<div class="post-content">
 		<h1><%= full_post ? post.title : link_to(post.title, post) %></h1>
 		<%=rnst( full_post ? post.body : post.teaser ) %>
 	</div> <!-- post-content -->
-	
+				<%= content_tag :p, link_to("Edit", edit_admin_post_path(post)) if superuser? %>			
 	<%- if full_post -%>
 	<div class="post-resources">
 		<h3>Resources</h3>
+		<% @post.post_resources.each do |pr| %>
 		<ol>
-			<li><%= link_to "Some code" "" %></li>
+			<li><%= link_to pr.title, pr.url, :class => :external %></li>
 		</ol>
+		<% end %>
 		<h3>Tags</h3>
 		<ul>
-			<li><%= link_to "tag1" "" %>, <%= link_to "tag2" "" %>, and <%= link_to "tag3" "" %></li>
+			<li><%= tag_list(post) %></li>
 		</ul>
 	</div> <!-- post-resources -->
 	<div id="post-comments">

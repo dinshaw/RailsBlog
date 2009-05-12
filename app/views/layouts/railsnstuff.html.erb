@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<title><%= page_title %></title>
-	<%= stylesheet_link_tag 'layout', 'railsnstuff', 'nav', 'forms', 'coderay2', :cache => 'railsnstuff' %>
+	<%= stylesheet_link_tag 'layout', 'railsnstuff', 'nav', 'forms', 'coderay2', 'acts_as_taggable_stylesheet', :cache => 'railsnstuff' %>
 	<%= javascript_include_tag 'jquery', 'application', :cache => true %>
 	
 </head>
@@ -30,21 +30,8 @@
 		<div id="content">
 			<div id="side-bar">
 				<h2>Tags</h2>
-				<ul id="tags">
-					<li><%= link_to "development", "" %></li>
-					<li><%= link_to "planning", "" %></li>
-					<li><%= link_to "discovery", "" %></li>
-					<li><%= link_to "consultation", "" %></li>
-					<li><%= link_to "wireframe", "" %></li>
-					<li><%= link_to "IA", "" %></li>
-					<li><%= link_to "proto-site", "" %></li>
-					<li><%= link_to "useability", "" %></li>
-					<li><%= link_to "development team", "" %></li>
-					<li><%= link_to "design", "" %></li>
-					<li><%= link_to "full lifecycle", "" %></li>
-					<li><%= link_to "small projects", "" %></li>
-					<li><%= link_to "scripting", "" %></li>
-				</ul>
+				<%= tag_cloud %>
+				<ul id="tags"></ul>
 			</div> <!-- side-bar -->
 	
 			<div id="content-main">

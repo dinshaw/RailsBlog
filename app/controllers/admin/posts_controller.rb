@@ -25,7 +25,8 @@ class Admin::PostsController < ApplicationController
   # GET /admin/posts/new.xml
   def new
     @post = Post.new
-
+    2.times{ @post.post_resources.build }
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @post }
@@ -35,6 +36,7 @@ class Admin::PostsController < ApplicationController
   # GET /admin/posts/1/edit
   def edit
     @post = Post.find(params[:id])
+        3.times{ @post.post_resources.build }
   end
 
   # POST /admin/posts

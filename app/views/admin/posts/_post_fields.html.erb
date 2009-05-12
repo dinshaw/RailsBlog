@@ -1,12 +1,28 @@
-  <p>
-    <%= f.label :title %>
-    <%= f.text_field :title, :class => :text %>
-  </p>
-  <p>
-    <%= f.label :teaser %>
-    <%= f.text_area :teaser, :class => :small %>
-  </p>
-  <p>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </p>
+<p>
+	<%= f.label :title %>
+	<%= f.text_field :title, :class => :text %>
+</p>
+<p>
+	<%= f.label :teaser %>
+	<%= f.text_area :teaser, :class => :small %>
+</p>
+<p>
+	<%= f.label :body %>
+	<%= f.text_area :body %>
+</p>
+
+<p>
+	<%= f.label :tag_list %>
+	<%= f.text_field :tag_list -%>
+</p>
+<% f.fields_for :post_resources do |pr| %>
+	<p><%= pr.label  :title %>
+	<%= pr.text_field :title, :class => :text %></p>
+	<p><%= pr.label  :url %>	
+	<%= pr.text_field :url, :class => :text %></p>
+	<% unless pr.object.new_record? %>
+     <p><%= pr.check_box '_delete', :class => :left %>
+     <%= pr.label '_delete', 'Remove' %></p>
+   <% end %>
+   
+<% end %>

@@ -1,10 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :post_resources, :path_prefix => 'admin', :name_prefix => 'admin_', :controller => 'admin/post_resources'
-
-  map.resources :post_resources, :path_prefix => 'admin', :name_prefix => 'admin_', :controller => 'admin/post_resources'
-
-  map.resources :post_resources, :path_prefix => 'admin', :name_prefix => 'admin_', :controller => 'admin/post_resources'
-
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
@@ -19,11 +13,13 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :posts, :has_many => :comments
 
-    map.namespace :admin do |admin|
-      admin.resources :posts, :comments
-    end
+  map.resources :tags
 
-    map.root :controller => "posts"
+  map.namespace :admin do |admin|
+    admin.resources :posts, :comments, :post_resources, :tags
+  end
+
+  map.root :controller => "posts"
 
   # See how all your routes lay out with "rake routes"
 

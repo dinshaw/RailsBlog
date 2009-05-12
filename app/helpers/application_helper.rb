@@ -17,5 +17,14 @@ module ApplicationHelper
     end
     text
   end
-
+  
+  def superuser? 
+    logged_in? && current_user.has_role('superuser')
+    true
+  end
+  
+  def tag_list(thing)
+    thing.tags.map{ |t| link_to(t,"") }.to_sentence
+    
+  end
 end
