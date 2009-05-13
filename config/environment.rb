@@ -22,7 +22,7 @@ Rails::Initializer.run do |config|
   config.gem 'ryanb-acts-as-list', :lib => 'acts_as_list', :source => 'http://gems.github.com'
   config.gem 'sqlite3-ruby', :lib => 'sqlite3'
   config.gem 'coderay'
-  config.gem 'friendly_id'  
+  config.gem 'friendly_id'    
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.

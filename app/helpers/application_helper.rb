@@ -19,12 +19,19 @@ module ApplicationHelper
   end
   
   def superuser? 
-    logged_in? && current_user.has_role('superuser')
+    logged_in? && current_user.has_role?('superuser')
     true
   end
   
   def tag_list(thing)
-    thing.tags.map{ |t| link_to(t,"") }.to_sentence
-    
+    thing.tags.map{ |t| tag_link(t) }.to_sentence
+  end
+  
+  def tag_link(tag)
+    link_to tag.name, posts_path(:post_search => { :tags => tag.name } )
+  end
+  
+  def flash_block
+    [flash[:message],flash[:error]].join(" ")
   end
 end

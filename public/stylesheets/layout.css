@@ -15,7 +15,6 @@ html, body {
 	height: 100%;
 	margin: 0 auto -40px; /* the bottom margin is the negative value of the footer's height */
 	text-align: center;
-	background:url(/images/bg-white-bordered.gif) 50% repeat-y;
 }
 
 #footer, #push {

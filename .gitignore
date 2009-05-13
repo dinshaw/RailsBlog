@@ -1,5 +1,14 @@
-      .DS_Store
-      log/*.log
-      tmp/**/*
-      config/database.yml
-      db/*.sqlite3
+.DS_Store
+log/*
+tmp/**/*
+config/database.yml
+config/deploy.rb
+config/environments/development.rb
+*.swp
+public/attachments/**/*
+public/user_files
+public/stylesheets
+nbproject
+db/sphinx
+db/schema.rb
+config/initializers/site_keys.rb

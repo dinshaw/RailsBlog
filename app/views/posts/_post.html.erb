@@ -8,18 +8,18 @@
 		</ul>
 	</div> <!-- post-info -->
 	<div class="post-content">
-		<h1><%= full_post ? post.title : link_to(post.title, post) %></h1>
+		<h1><%= full_post ? post.title : link_to(post.title, (superuser? ? admin_post_path(post) : post)) %></h1>
 		<%=rnst( full_post ? post.body : post.teaser ) %>
 	</div> <!-- post-content -->
-				<%= content_tag :p, link_to("Edit", edit_admin_post_path(post)) if superuser? %>			
+		
 	<%- if full_post -%>
 	<div class="post-resources">
 		<h3>Resources</h3>
-		<% @post.post_resources.each do |pr| %>
 		<ol>
+			<% post.post_resources.each do |pr| %>
 			<li><%= link_to pr.title, pr.url, :class => :external %></li>
+			<% end %>
 		</ol>
-		<% end %>
 		<h3>Tags</h3>
 		<ul>
 			<li><%= tag_list(post) %></li>

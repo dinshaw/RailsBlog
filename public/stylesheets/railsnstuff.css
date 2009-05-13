@@ -12,6 +12,11 @@ body {
 	color:#444656;
 }
 
+.left{
+	float:left;
+	margin-right:10px;
+}
+
 /* =Links */
 a{
 	color:#ffa201;

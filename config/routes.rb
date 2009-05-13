@@ -16,7 +16,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :tags
 
   map.namespace :admin do |admin|
-    admin.resources :posts, :comments, :post_resources, :tags
+    admin.resources :posts do |post|
+      post.resources :comments, :tags
+      post.resources :post_resources, :member => { :up => :get }
+    end
   end
 
   map.root :controller => "posts"

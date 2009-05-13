@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090512054511) do
+ActiveRecord::Schema.define(:version => 20090513051134) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20090512054511) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "teaser"
+    t.boolean  "delta"
   end
 
   create_table "roles", :force => true do |t|
@@ -57,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20090512054511) do
   add_index "roles_users", ["user_id"], :name => "index_roles_users_on_user_id"
 
   create_table "sessions", :force => true do |t|
-    t.string   "session_id", :null => false
+    t.string   "session_id", :default => "", :null => false
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"

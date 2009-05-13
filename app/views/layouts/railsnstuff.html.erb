@@ -13,15 +13,15 @@
 <body id="railsnstuff">
 	<div id="wrapper">
 		<div id="masthead">
-			<div id="tag-line"><p>... adventures in freelancing</p></div> <!-- tag-line -->
+			<div id="tag-line"><p>adventures in freelancing</p></div> <!-- tag-line -->
 			
 			<div id="logo"><%= image_tag 'logo.gif' %></div> <!-- logo -->
 			
 		</div> <!-- masthead -->
 			<div id="search-bar">
 				<div id="search-container">
-					<% form_for '' do |f| %>
-						<%= f.text_field :keyword, :class => :text %>
+					<% form_for :post_search, :url => posts_path, :html => {:method => :get} do |f| %>
+						<%= f.text_field :keywords, :class => :text %>
 						<%= f.submit :search, :class => :btn %>
 					<% end %>
 				</div>
@@ -30,11 +30,15 @@
 		<div id="content">
 			<div id="side-bar">
 				<h2>Tags</h2>
-				<%= tag_cloud %>
-				<ul id="tags"></ul>
+				<ul id="tags">
+					<% Tag.all.each do |t| %>
+					<li><%= tag_link(t) %></li>
+					<% end %>
+				</ul>
 			</div> <!-- side-bar -->
 	
 			<div id="content-main">
+				<%= flash_block %>
 				<%= yield %>
 			</div> <!-- content-main -->
 		</div> <!-- content -->

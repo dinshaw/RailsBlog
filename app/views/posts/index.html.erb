@@ -1,1 +1,4 @@
-<%= render @posts %>
+<%= render(@posts) %>
+
+<p><%= will_paginate @posts, :container => false %> </p>
+<p><%= page_entries_info @posts %></p>

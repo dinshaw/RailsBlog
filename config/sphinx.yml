@@ -1,0 +1,15 @@
+development:
+  port: 3311
+  config_file: db/sphinx/development.sphinx.conf
+
+test:
+  port: 3310
+  config_file: db/sphinx/test.sphinx.conf
+  
+staging:
+  port: 3312
+  config_file: db/sphinx/staging.sphinx.conf
+  
+production:
+  port: 3313
+  config_file: db/sphinx/production.sphinx.conf  

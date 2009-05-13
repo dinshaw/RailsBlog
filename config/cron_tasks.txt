@@ -1,0 +1,2 @@
+*/10 * * * * /home/deploy/stage.zxonex.com/current/rake ts:in
+*/10 * * * * /home/deploy/zxonex.com/current/rake ts:in
