@@ -1,0 +1,43 @@
+- full_post ||= false
+.post
+  .post-info
+    %ul
+      %li.number= post.id
+      %li.date= post.created_at.to_s(:post)
+      - if post.comments_count.to_i > 0
+        %li= link_to "#{post.comments_count} comments", "", :class => :comments
+  .post-content
+    %h1= (full_post ? post.title : link_to(post.title, (superuser? ? admin_post_path(post) : post)))
+    = rnst full_post ? post.body : post.teaser
+
+  - if full_post
+    #post-resources
+      %h3 Resources
+      %ol
+        - post.post_resources.each do |pr|
+          %li= link_to pr.title, pr.url, :class => :external
+      %h3 Tags
+      %p= tag_list(post)
+      
+    #post-comments
+      %h2
+        = image_tag("rss.gif")
+        = link_to("#{post.comments_count} Comments")
+      = render :partial => 'comments/comment', :collection => post.comments
+    %h2 Add Comment
+    - form_for [post, post.comments.new] do |f|
+      %p
+        = f.label :name
+        = f.text_field :name
+      %p
+        = f.label :email
+        = f.text_field :name
+      %p
+        = f.label :url
+        = f.text_field :name              
+      %P 
+        = f.label :body
+        = f.text_area :body, :class => :small
+      %p= f.submit "Comment"
+      
+  

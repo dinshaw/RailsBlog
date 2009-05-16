@@ -1,0 +1,11 @@
+<div class="comment">
+	<div class="comment-info">
+		<p><span class="comment-number"><%= comment_counter + 1 %>.</span> <%= link_to comment.name, comment.url, :class => :commentor %> <span class="date"><%= comment.created_at.to_s(:comment) %></span></p>
+	</div> <!-- comment-info -->
+	<div class="comment-content">
+		<%= rnst comment.body %>
+	</div> <!-- comment-content -->
+	<div class="comment-actions">
+		<p><%= link_to "spam?", "", :class => 'non-bold' %></p>
+	</div> <!-- comment-actions -->
+</div> <!-- comment -->

@@ -1,0 +1,31 @@
+!!! XML
+!!! Strict
+%html{html_attrs}
+  %head
+    %title= page_title
+    = stylesheet_link_tag 'layout', 'railsblog', 'forms', 'coderay', 'acts_as_taggable_stylesheet', :cache => 'railsnstuff'
+    = javascript_include_tag 'jquery', 'application', :cache => true
+    
+  %body#railsblog
+    #wrapper
+      #masthead
+        #tag-line
+          %p adventures in freelancing
+        #logo= image_tag('logo.gif')
+      #search-bar
+        #search-container
+          - form_for :post_search, :url => posts_path, :html => {:method => :get} do |f|
+            = f.text_field :keywords, :class => :text
+            = f.submit :search, :class => :btn
+      #content
+        #side-bar
+          %h2 Tags
+          %ul#tags
+            - Tag.all.each do |t|
+              %li= tag_link(t)
+        #content-main
+          = flash_block
+          = yield
+
+        #push
+        #footer
