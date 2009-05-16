@@ -1,71 +1,57 @@
+/* Sticky Footer by Ryan Fait */
+/* http://ryanfait.com/ */
 * {
-	margin: 0;
-}
-body{
-	text-align:center;
-}
+  margin: 0; }
+
+body {
+  text-align: center; }
+
 html, body {
-	height: 100%;
-	background:#fff;
-}
+  height: 100%;
+  background: #fff; }
 
 #wrapper {
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	margin: 0 auto -40px; /* the bottom margin is the negative value of the footer's height */
-	text-align: center;
-}
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto 40px;
+  text-align: center; }
 
 #footer, #push {
-	clear:both;
-	height:40px; /* #push must be the same height as #footer */
-}
-/*
-Sticky Footer by Ryan Fait
-http://ryanfait.com/
-*/
+  clear: both;
+  /* #push must be the same height as #footer */
+  height: 40px; }
 
-#masthead, #content, #search-container{
-	width:900px;
-	margin:auto;
-	text-align:left;
-}
-#content-main{
-	width:700px;
-	margin-top:20px;
-}
+#masthead, #content, #search-container {
+  width: 900px;
+  margin: auto;
+  text-align: left; }
 
-#side-bar{
-	width:200px;
-	float:right;
-	text-align:right;
-}
+#content-main {
+  width: 700px;
+  margin-top: 20px; }
 
-#search-bar{
-	background-color:#ffc701;
-	padding:8px 0;
-}
+#side-bar {
+  width: 200px;
+  float: right;
+  text-align: right; }
 
-#search-container{
-	text-align:right;
-}
+#search-bar {
+  background-color: #ffc701;
+  padding: 8px 0; }
 
-#masthead{
-	height:80px;
-	position:relative;
-}
+#search-container {
+  text-align: right; }
 
-#tag-line, #logo{
-	position:absolute;
-	font-size:1.2em;
-	top:50%;
-}
-#tag-line{
-	right:0;
-	margin-top:-0.2em;
-	font-size:0.9em;
-}
-#logo{
-	margin-top:-20px;
-}
+#masthead {
+  height: 70px;
+  position: relative; }
+
+#tag-line, #logo {
+  position: absolute;
+  bottom: 0px; }
+
+#tag-line {
+  right: 0;
+  font-size: 0.9em;
+  line-height: 0.9em; }

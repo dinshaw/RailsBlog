@@ -20,7 +20,6 @@ module ApplicationHelper
   
   def superuser? 
     logged_in? && current_user.has_role?('superuser')
-    true
   end
   
   def tag_list(thing)

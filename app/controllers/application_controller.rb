@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include ExceptionNotifiable  
   include AuthenticatedSystem
   include RoleRequirementSystem
-  layout 'railsnstuff'
+  layout 'main'
   
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details

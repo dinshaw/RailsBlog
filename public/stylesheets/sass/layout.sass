@@ -1,0 +1,64 @@
+!footer_height = 40
+!width = 900
+!side_bar_width = 200
+!unit1 = em
+!unit2 = px
+!strip_color = #ffc701
+
+/* Sticky Footer by Ryan Fait
+/* http://ryanfait.com/
+*
+  margin: 0
+
+body
+  :text-align center
+
+html, body
+  :height 100%
+  :background #fff
+
+#wrapper
+  :min-height 100%
+  :height auto !important
+  :height 100%
+  :margin = 0 auto !footer_height + !unit2
+  :text-align center
+  
+#footer, #push
+  :clear both
+  /* #push must be the same height as #footer
+  :height = !footer_height + !unit2
+  
+#masthead, #content, #search-container
+  :width = !width + !unit2
+  :margin auto
+  :text-align left
+  
+#content-main
+  :width = (!width - !side_bar_width) + !unit2
+  :margin-top 20px
+  
+#side-bar
+  :width = !side_bar_width + !unit2
+  :float right
+  :text-align right
+  
+#search-bar
+  :background-color = !strip_color
+  :padding 8px 0
+  
+#search-container
+  :text-align right
+
+#masthead
+  :height 70px
+  :position relative
+  
+#tag-line, #logo
+  :position absolute
+  :bottom 0px
+  
+#tag-line
+  :right 0
+  :font-size 0.9em
+  :line-height 0.9em

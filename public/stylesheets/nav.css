@@ -1,45 +1,80 @@
-#nav_main{
-	text-align:center;
-	height:2.5em;
-	width:100%;	
-}
-#nav_main ul{
-	width:px;
-	margin:auto;
-	text-align:left;	
-}
-#nav_main li{
-	float:left;
-}
+/*
+Sass::SyntaxError: A tab character was used for indentation. Sass must be indented using two spaces.
+Are you sure you have soft tabs enabled in your editor?
+on line 2 of /Users/dinshaw/sites/railsnstuff.com/master/public/stylesheets/sass/nav.sass
 
-#nav_main li a{
-	color:white;
-	float:left;
-	display:block;
-	padding:0;	
-	text-transform:uppercase;
-	height:2.5em;
-	line-height:2.5em;
-}
+1: #nav_main{
+2: 	text-align:center;
+3: 	height:2.5em;
+4: 	width:100%;	
+5: }
+6: #nav_main ul{
+7: 	width:px;
+8: 	margin:auto;
 
-#nav_main li a:hover{
-	border-width:0;
-	text-decoration:underline;
-}
 
-#nav_main li.first a{
-	margin:0 0 0 0;
-}
-
-#nav_main li.last a{
-	margin:0
-}
-
-#nav-main{
-	background-color:#ffc701;
-}
-
-#nav-main li a:hover, #nav-main li.current a{
-	background-color:#fff;
-	color:#444656;
-}
+Backtrace:
+/Users/dinshaw/sites/railsnstuff.com/master/public/stylesheets/sass/nav.sass:2
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/gems/haml-2.0.9/lib/sass/engine.rb:175:in `count_tabs'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/gems/haml-2.0.9/lib/sass/engine.rb:142:in `split_lines'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/gems/haml-2.0.9/lib/sass/engine.rb:93:in `each_with_index'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/gems/haml-2.0.9/lib/sass/engine.rb:139:in `each'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/gems/haml-2.0.9/lib/sass/engine.rb:139:in `each_with_index'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/gems/haml-2.0.9/lib/sass/engine.rb:139:in `split_lines'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/gems/haml-2.0.9/lib/sass/engine.rb:110:in `render_to_tree'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/gems/haml-2.0.9/lib/sass/engine.rb:88:in `render'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/gems/haml-2.0.9/lib/sass/plugin.rb:65:in `update_stylesheets'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/gems/haml-2.0.9/lib/sass/plugin.rb:53:in `each'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/gems/haml-2.0.9/lib/sass/plugin.rb:53:in `update_stylesheets'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/gems/haml-2.0.9/lib/sass/plugin/rails.rb:16:in `process'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/base.rb:391:in `process'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/base.rb:386:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/routing/route_set.rb:433:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:111:in `_call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/params_parser.rb:15:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/rewindable_input.rb:25:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/session/abstract_store.rb:122:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/activerecord/lib/active_record/query_cache.rb:29:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/activerecord/lib/active_record/query_cache.rb:9:in `cache'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/activerecord/lib/active_record/query_cache.rb:28:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/reloader.rb:9:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/failsafe.rb:11:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/dispatcher.rb:106:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/railties/lib/rails/rack/static.rb:31:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/railties/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/actionpack/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+/Users/dinshaw/sites/railsnstuff.com/master/vendor/rails/railties/lib/commands/server.rb:111
+/usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Sass::SyntaxError: A tab character was used for indentation. Sass must be indented using two spaces.\A Are you sure you have soft tabs enabled in your editor?\A on line 2 of /Users/dinshaw/sites/railsnstuff.com/master/public/stylesheets/sass/nav.sass\A \A 1: #nav_main{\A 2: 	text-align:center;\A 3: 	height:2.5em;\A 4: 	width:100%;	\A 5: }\A 6: #nav_main ul{\A 7: 	width:px;\A 8: 	margin:auto;\A "; }

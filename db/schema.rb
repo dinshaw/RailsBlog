@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090513051134) do
+ActiveRecord::Schema.define(:version => 20090513165752) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(:version => 20090513051134) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
   end
 
   create_table "post_resources", :force => true do |t|
@@ -38,11 +40,11 @@ ActiveRecord::Schema.define(:version => 20090513051134) do
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.integer  "comment_count"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "teaser"
     t.boolean  "delta"
+    t.integer  "comments_count"
   end
 
   create_table "roles", :force => true do |t|

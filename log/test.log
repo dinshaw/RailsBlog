@@ -1,0 +1,86 @@
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (71.6ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (53.4ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090423230636)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (3.9ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(40), `name` varchar(100) DEFAULT '', `email` varchar(100), `crypted_password` varchar(40), `salt` varchar(40), `created_at` datetime, `updated_at` datetime, `remember_token` varchar(40), `remember_token_expires_at` datetime, `activation_code` varchar(40), `activated_at` datetime, `state` varchar(255) DEFAULT 'passive', `deleted_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (44.9ms)[0m   [0;1mCREATE UNIQUE INDEX `index_users_on_login` ON `users` (`login`)[0m
+  [4;35;1mSQL (24.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090423230636')[0m
+Migrating to CreateRoles (20090423230639)
+  [4;36;1mSQL (3.1ms)[0m   [0;1mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (2.9ms)[0m   [0mCREATE TABLE `roles_users` (`role_id` int(11), `user_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (8.5ms)[0m   [0;1mCREATE INDEX `index_roles_users_on_role_id` ON `roles_users` (`role_id`)[0m
+  [4;35;1mSQL (9.8ms)[0m   [0mCREATE INDEX `index_roles_users_on_user_id` ON `roles_users` (`user_id`)[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090423230639')[0m
+Migrating to CreateSessions (20090423230647)
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE TABLE `sessions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `session_id` varchar(255) NOT NULL, `data` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (8.7ms)[0m   [0;1mCREATE INDEX `index_sessions_on_session_id` ON `sessions` (`session_id`)[0m
+  [4;35;1mSQL (9.4ms)[0m   [0mCREATE INDEX `index_sessions_on_updated_at` ON `sessions` (`updated_at`)[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090423230647')[0m
+Migrating to AddActsAsTaggableTables (20090423230650)
+  [4;35;1mSQL (3.1ms)[0m   [0mCREATE TABLE `tags` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `taggings_count` int(11) DEFAULT 0 NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (8.9ms)[0m   [0;1mCREATE INDEX `index_tags_on_name` ON `tags` (`name`)[0m
+  [4;35;1mSQL (10.0ms)[0m   [0mCREATE INDEX `index_tags_on_taggings_count` ON `tags` (`taggings_count`)[0m
+  [4;36;1mSQL (3.2ms)[0m   [0;1mCREATE TABLE `taggings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `tag_id` int(11), `taggable_id` int(11), `taggable_type` varchar(255), `user_id` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (76.6ms)[0m   [0mCREATE INDEX `index_taggings_on_tag_id_and_taggable_type` ON `taggings` (`tag_id`, `taggable_type`)[0m
+  [4;36;1mSQL (26.6ms)[0m   [0;1mCREATE INDEX `index_taggings_on_user_id_and_tag_id_and_taggable_type` ON `taggings` (`user_id`, `tag_id`, `taggable_type`)[0m
+  [4;35;1mSQL (10.4ms)[0m   [0mCREATE INDEX `index_taggings_on_taggable_id_and_taggable_type` ON `taggings` (`taggable_id`, `taggable_type`)[0m
+  [4;36;1mSQL (10.0ms)[0m   [0;1mCREATE INDEX `index_taggings_on_user_id_and_taggable_id_and_taggable_type` ON `taggings` (`user_id`, `taggable_id`, `taggable_type`)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090423230650')[0m
+Migrating to CreatePosts (20090423232357)
+  [4;36;1mSQL (3.9ms)[0m   [0;1mCREATE TABLE `posts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `body` text, `comment_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090423232357')[0m
+Migrating to CreateComments (20090423232701)
+  [4;36;1mSQL (33.2ms)[0m   [0;1mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `body` text, `lft` int(11), `rgt` int(11), `parent_id` int(11), `post_id` int(11), `spam` tinyint(1), `name` varchar(255), `url` varchar(255), `email` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090423232701')[0m
+Migrating to CreatePostResources (20090512052039)
+  [4;36;1mSQL (4.0ms)[0m   [0;1mCREATE TABLE `post_resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `url` varchar(255), `post_id` int(11), `position` int(11), `description` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090512052039')[0m
+Migrating to AddTeaserToPost (20090512053412)
+  [4;36;1mSQL (8.6ms)[0m   [0;1mALTER TABLE `posts` ADD `teaser` text[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090512053412')[0m
+Migrating to CreateSlugs (20090512054511)
+  [4;36;1mSQL (3.1ms)[0m   [0;1mCREATE TABLE `slugs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `sluggable_id` int(11), `sequence` int(11) DEFAULT 1 NOT NULL, `sluggable_type` varchar(40), `scope` varchar(40), `created_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (15.4ms)[0m   [0mCREATE UNIQUE INDEX `index_slugs_on_name_and_sluggable_type_and_scope_and_sequence` ON `slugs` (`name`, `sluggable_type`, `scope`, `sequence`)[0m
+  [4;36;1mSQL (11.4ms)[0m   [0;1mCREATE INDEX `index_slugs_on_sluggable_id` ON `slugs` (`sluggable_id`)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090512054511')[0m
+Migrating to AddDeltaPost (20090513051134)
+  [4;36;1mSQL (9.8ms)[0m   [0;1mALTER TABLE `posts` ADD `delta` tinyint(1)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090513051134')[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (3.4ms)[0m   [0mSHOW FIELDS FROM `comments`[0m
+  [4;36;1mSQL (27.5ms)[0m   [0;1mdescribe `comments`[0m
+  [4;35;1mSQL (5.6ms)[0m   [0mSHOW KEYS FROM `comments`[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mSHOW FIELDS FROM `post_resources`[0m
+  [4;35;1mSQL (3.6ms)[0m   [0mdescribe `post_resources`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW KEYS FROM `post_resources`[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (3.4ms)[0m   [0;1mdescribe `posts`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW KEYS FROM `posts`[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mdescribe `roles`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW KEYS FROM `roles`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSHOW FIELDS FROM `roles_users`[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mdescribe `roles_users`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW KEYS FROM `roles_users`[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW FIELDS FROM `sessions`[0m
+  [4;35;1mSQL (2.9ms)[0m   [0mdescribe `sessions`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW KEYS FROM `sessions`[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mSHOW FIELDS FROM `slugs`[0m
+  [4;36;1mSQL (3.7ms)[0m   [0;1mdescribe `slugs`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW KEYS FROM `slugs`[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mSHOW FIELDS FROM `taggings`[0m
+  [4;35;1mSQL (3.1ms)[0m   [0mdescribe `taggings`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSHOW KEYS FROM `taggings`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mdescribe `tags`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW KEYS FROM `tags`[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (3.9ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m

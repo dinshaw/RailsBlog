@@ -9,7 +9,7 @@ development:
   
 staging:
   adapter: mysql
-  database: rns_dev
+  database: rns_stage
   username: root
   password: mysqlroot
   host: localhost
